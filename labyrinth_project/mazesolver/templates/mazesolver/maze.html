@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Labyrinth Solver</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            font-size: 14px;
+            border: 1px solid #ccc;
+        }
+
+        .wall {
+            background-color: black;
+            color: white;
+        }
+
+        .start {
+            background-color: green;
+            color: white;
+        }
+
+        .end {
+            background-color: red;
+            color: white;
+        }
+
+        .path {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Labyrinth Solver</h1>
+    <table>
+        {% for row in maze %}
+        <tr>
+            {% for cell in row %}
+            <td class="{% if cell == '#' %}wall{% elif cell == 'S' %}start{% elif cell == 'E' %}end{% elif cell == '*' %}path{% endif %}">
+                {{ cell }}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
