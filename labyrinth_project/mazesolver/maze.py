@@ -61,6 +61,7 @@ class Labyrinth:
 
 
 
+
     def find_start(self):
         for y, row in enumerate(self.maze):
             for x, box in enumerate(row):
