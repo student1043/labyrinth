@@ -12,14 +12,15 @@ def analyzer(log_path):
     logged_ips = []
 
     for line in logger:
-        logged_ips.append(pattern.search(line)[0])
+        match = pattern.search(line)
+        if match:
+            logged_ips.append(match.group())
 
     counted_ips = Counter(logged_ips)
 
     sorted_ips = sorted(counted_ips.items(), key=lambda x: x[1], reverse=True)
 
     print(sorted_ips)
-
 
 
 file_path = sys.argv[1]
